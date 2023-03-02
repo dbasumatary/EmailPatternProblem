@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//UC4 - Validation of part 4 - handling optional part with valid special characters
+//UC5 - Validation of part 5 - Method of writing TLD or optional country code
 public class EmailValidation {
     public void checkValidEmail(){
         Scanner scanner = new Scanner(System.in);
@@ -12,7 +12,7 @@ public class EmailValidation {
         String email = scanner.next();
 
         //Checking the start of email characters and provide @ symbol and email server name and "." symbol
-        String regexInput = "^(?=.{3,20}@)[a-zA-Z]+[A-Za-z0-9]+[- + . _]?[a-zA-Z0-9]+.@[^-_.][a-zA-Z0-9-]+(\\.[A-Za-z]+)(\\.[a-zA-Z]+)*$";
+        String regexInput = "^(?=.{3,20}@)[a-zA-Z]+[A-Za-z0-9]+[- + . _]?[a-zA-Z0-9]+.@[^-_.][a-zA-Z0-9-]+(\\.[a-z]+)(\\.[a-z]+)*$";
         Pattern patternObject = Pattern.compile(regexInput);
 
         //We are assuming the email cannot be null

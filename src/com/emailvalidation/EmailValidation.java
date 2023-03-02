@@ -4,15 +4,16 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//UC1 - Validation of part 1  - email has to start with characters
+//UC2 - Validation of part 2 - email has to have @ symbol
 public class EmailValidation {
     public void checkValidEmail(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the email address: ");
         String email = scanner.next();
 
-        //Checking the start of email starting with characters
-        Pattern patternObject = Pattern.compile("^(?=.{3,20}@)[a-zA-Z]{2,}[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*+@(.+)$");
+        //Checking the start of email starting with characters and provide @ symbol
+        String regexInput = "^(?=.{3,20}@)[a-zA-Z]{2,}[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-_.][a-zA-Z0-9-]+$";
+        Pattern patternObject = Pattern.compile(regexInput);
 
         //We are assuming the email cannot be null
         assert email != null;
@@ -24,9 +25,9 @@ public class EmailValidation {
         boolean isEmail =  matcherObject.matches();
 
         if(isEmail)
-            System.out.println(email + " is a Valid email address");
+            System.out.println(email + " is a valid email address");
         else
-            System.out.println(email + " is an Invalid email address");
+            System.out.println(email + " is an invalid email address");
     }
     public static void main(String[] args) {
         System.out.println("---------- Email Validation ----------");
